@@ -9,20 +9,19 @@ import android.view.View;
 import android.widget.Toast;
 
 
-
-public class RegisterActivity extends AppCompatActivity  {
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-         final CheckBox checkBox = (CheckBox)findViewById(R.id.chBox);
-         checkBox.setChecked(false);
-         boolean checkBoxState = checkBox.isChecked();
+        final CheckBox checkBox = (CheckBox) findViewById(R.id.chBox);
+        checkBox.setChecked(false);
+        boolean checkBoxState = checkBox.isChecked();
 
 
-         Button btnSubmit = (Button)findViewById(R.id.btnRegisterSubmit);
+        Button btnSubmit = (Button) findViewById(R.id.btnRegisterSubmit);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,18 +31,14 @@ public class RegisterActivity extends AppCompatActivity  {
                     Toast.makeText(getApplicationContext(), "You have successfully registered", Toast.LENGTH_LONG).show();
 
 
-
-                Intent btnSubmitIntent = new Intent(RegisterActivity.this,StoreActivity.class);
-
+                Intent btnSubmitIntent = new Intent(RegisterActivity.this, StoreActivity.class);
 
 
                 RegisterActivity.this.startActivity(btnSubmitIntent);
 
 
-
             }
         });
-
 
 
     }

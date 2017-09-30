@@ -17,21 +17,19 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        Button btnSubmitLogIn = (Button)findViewById(R.id.btnLogIn);
-        final EditText txtEmailAddress = (EditText)findViewById(R.id.txtEmailLogIn);
+        Button btnSubmitLogIn = (Button) findViewById(R.id.btnLogIn);
+        final EditText txtEmailAddress = (EditText) findViewById(R.id.txtEmailLogIn);
 
         btnSubmitLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-               if (txtEmailAddress.getText().length() > 0)
-               {
-                   Toast.makeText(getApplicationContext(), "You have successfully registered", Toast.LENGTH_LONG).show();
-               }
+                if (txtEmailAddress.getText().length() > 0) {
+                    Toast.makeText(getApplicationContext(), "You have successfully logged in", Toast.LENGTH_LONG).show();
+                }
 
 
-
-                Intent logInIntent = new Intent(LogInActivity.this,StoreActivity.class);
+                Intent logInIntent = new Intent(LogInActivity.this, StoreActivity.class);
 
                 LogInActivity.this.startActivity(logInIntent);
             }

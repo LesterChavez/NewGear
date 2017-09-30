@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.tysonlove.newgear.LogInActivity"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
     <EditText
         android:id="@+id/txtEmailLogIn"
@@ -27,6 +27,7 @@
         android:id="@+id/txtPasswordLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Password"
@@ -34,22 +35,21 @@
         app:layout_constraintLeft_toLeftOf="@+id/txtEmailLogIn"
         app:layout_constraintTop_toBottomOf="@+id/txtEmailLogIn"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginLeft="0dp" />
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/btnLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log In"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1"
+        android:layout_marginLeft="52dp"
         android:layout_marginStart="52dp"
+        android:text="Log In"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/txtPasswordLogIn"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="52dp" />
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/editText"
