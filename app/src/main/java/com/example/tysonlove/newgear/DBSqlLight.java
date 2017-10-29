@@ -1,0 +1,43 @@
+package com.example.tysonlove.newgear;
+
+import android.content.Context;
+import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+/**
+ * Created by TysonLove on 10/26/2017.
+ */
+
+
+public class DBSqlLight extends SQLiteOpenHelper {
+    public static final String DATABASE_NAME = "register.db";
+    public static final int DATABASE_VERSION = 1;
+
+    // private final Context context;
+    //  SQLiteDatabase db;
+
+    public static final String TABLE_NAME = "register";
+    public static final String COL_1 = "ID";
+    public static final String COL_2 = "FirstName";
+    public static final String COL_3 = "LastName";
+    public static final String COL_4 = "Password";
+    public static final String COL_5 = "Email";
+    public static final String COL_6 = "Phone";
+
+
+    public DBSqlLight(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);}
+        //this.context = context}
+
+
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,FirstName TEXT,LastName TEXT,Password TEXT,Email TEXT,Phone TEXT)");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS" + TABLE_NAME);
+        onCreate(db);
+    }
+}
