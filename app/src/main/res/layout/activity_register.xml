@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tysonlove.gearedupapp.SignUpActivity"
+    tools:context="com.example.tysonlove.newgear.RegisterActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtLastName"
         android:ems="10"
-
+        android:text="1111"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -68,6 +68,7 @@
         android:layout_below="@+id/txtPassword"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:text="A@a.com"
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -86,6 +87,7 @@
         android:layout_marginTop="7dp"
         android:ems="10"
         android:hint="Phone Number"
+        android:text="123"
         android:inputType="phone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

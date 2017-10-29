@@ -1,6 +1,9 @@
 package com.example.tysonlove.newgear;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +16,9 @@ import android.widget.Toast;
 
 
 public class RegisterActivity extends AppCompatActivity {
+    SQLiteOpenHelper openHelper;
+    SQLiteDatabase db;
+
     private final static String Tag = "validateMethRegClass";
 
 
@@ -20,6 +26,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        openHelper = new DBSqlLight(this);
 
         final CheckBox checkBox = (CheckBox) findViewById(R.id.chBox);
         checkBox.setChecked(false);
@@ -38,9 +46,19 @@ public class RegisterActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                db = openHelper.getWritableDatabase();
+                String fNameDb = fName.getText().toString();
+                String lNameDb = lName.getText().toString();
+                String pWordDb = pWord.getText().toString();
+                String eMailDb = eMail.getText().toString();
+                String phNumDb = phNum.getText().toString();
+                insertData(fNameDb, lNameDb, pWordDb, eMailDb, phNumDb);
+                Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
 
                 if (validateMethRegClass()) {
                     Log.d(Tag, "meth on call if true?? ");
+
+
 
                     Intent logInIntent = new Intent(RegisterActivity.this, StoreActivity.class);
 
@@ -103,8 +121,20 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void insertData(String fNameDb, String lNameDb, String pWordDb, String eMailDb, String phNumDb) {
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DBSqlLight.COL_2, fNameDb);
+        contentValues.put(DBSqlLight.COL_3, lNameDb);
+        contentValues.put(DBSqlLight.COL_4, pWordDb);
+        contentValues.put(DBSqlLight.COL_5, eMailDb);
+        contentValues.put(DBSqlLight.COL_6, phNumDb);
+
+        long id = db.insert(DBSqlLight.TABLE_NAME, null, contentValues);
 
     }
+
 
 
 }
