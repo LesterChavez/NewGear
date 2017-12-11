@@ -17,10 +17,6 @@ import android.util.Log;
 
 
 public class LogInActivity extends AppCompatActivity {
-    //    final Button btnSubmitLogIn = (Button) findViewById(R.id.btnLogIn);
-//    final EditText txtEmailAddress = (EditText) findViewById(R.id.txtEmailLogIn);
-//    final EditText txtPasswordLogIn = (EditText) findViewById(R.id.txtPasswordLogIn);
-    // public int counter = 0;
 
 
     private final static String Tag = "validateMeth";
@@ -35,9 +31,9 @@ public class LogInActivity extends AppCompatActivity {
 
         openHelper = new DBSqlLight(this);
 
-        final Button btnSubmitLogIn = (Button) findViewById(R.id.btnLogIn);
-        final EditText txtEmailAddress = (EditText) findViewById(R.id.txtEmailLogIn);
-        final EditText txtPassword = (EditText) findViewById(R.id.txtPasswordLogIn);
+        final Button btnSubmitLogIn = findViewById(R.id.btnLogIn);
+        final EditText txtEmailAddress = findViewById(R.id.txtEmailLogIn);
+        final EditText txtPassword = findViewById(R.id.txtPasswordLogIn);
 
 
         btnSubmitLogIn.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +48,7 @@ public class LogInActivity extends AppCompatActivity {
                     String passWord = txtPassword.getText().toString();
                     Log.d(Tag, "Pre cursor ");
 
-                    cursor = db.rawQuery("SELECT * FROM " + DBSqlLight.TABLE_NAME + "  WHERE " + DBSqlLight.COL_4 + "=? AND " + DBSqlLight.COL_5 + "=?", new String[]{passWord, email});
+                    cursor = db.rawQuery("SELECT * FROM " + DBSqlLight.TABLE_REGISTER + "  WHERE " + DBSqlLight.COL_4 + "=? AND " + DBSqlLight.COL_5 + "=?", new String[]{passWord, email});
                     Log.d(Tag, "post cursor");
 
                     if (cursor != null) {
@@ -93,8 +89,6 @@ public class LogInActivity extends AppCompatActivity {
                     counter++;
                     Log.d(Tag, "counter in pass is " + counter);
 
-                    //  btnSubmitLogIn.setEnabled(false);
-                    //  btnSubmitLogIn.setEnabled(false);
                 }
                 if (counter > 0) {
                     Log.d(Tag, "returned false, counter is  " + counter);
@@ -118,28 +112,7 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
-//    private boolean validateMeth() {
-//
-//        if (txtEmailAddress.getText().toString().trim().length() < 0 || !Patterns.EMAIL_ADDRESS.matcher(txtEmailAddress.getText().toString().trim()).matches()) {
-//            txtEmailAddress.setError("Format must be something@something.something");
-//            counter = 0;
-//            counter++;
-//        }
-//
-//        if (txtPasswordLogIn.getText().toString().length() == 0) {
-//            txtPasswordLogIn.setError("Password must not be blank");
-//            counter++;
-//            //  btnSubmitLogIn.setEnabled(false);
-//            //  btnSubmitLogIn.setEnabled(false);
-//        }
-//        if (counter >= 1) {
-//            return false;
-//        } else {
-//            return true;
-//        }
-//
-//
-//    }
+
 }
 
 

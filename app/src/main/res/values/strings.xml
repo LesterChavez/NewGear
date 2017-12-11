@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NewGear</string>
+    <string name="LogOut" />
 </resources>
