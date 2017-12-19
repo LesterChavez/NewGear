@@ -18,7 +18,7 @@ public class DBSqlLight extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
 
-
+//sdfadf
     public static final String TABLE_REGISTER = "register";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "FirstName";
