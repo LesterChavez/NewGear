@@ -46,16 +46,6 @@ public class DBSqlLight extends SQLiteOpenHelper {
     }
     // super(context, DATABASE_NAME1, null, DATABASE_VERSION);}
     //this.context = context}
-
-
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_REGISTER + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,FirstName TEXT,LastName TEXT,Password TEXT,Email TEXT,Phone TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_PRODUCTS + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,Rod TEXT,Reel TEXT,Lures TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_PRICE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,Price TEXT)");
-
-
-    }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_REGISTER);
@@ -65,4 +55,14 @@ public class DBSqlLight extends SQLiteOpenHelper {
 
         onCreate(db);
     }
+
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE " + TABLE_REGISTER + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,FirstName TEXT,LastName TEXT,Password TEXT,Email TEXT,Phone TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_PRODUCTS + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,Rod TEXT,Reel TEXT,Lures TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_PRICE + "(ID INTEGER PRIMARY KEY AUTOINCREMENT ,Price TEXT)");
+
+
+    }
+
+
 }
