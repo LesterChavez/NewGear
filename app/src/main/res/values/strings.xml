@@ -4,4 +4,11 @@
     <string name="title_activity_tabbed">TabbedActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="AddProducts">Add Products</string>
+    <string name="AddRod">Add Rod</string>
+    <string name="AddReel">Add Reel</string>
+    <string name="AddLure">Add Lure</string>
+    <string name="btnSubmitProduct">Subtmit Product</string>
+    <string name="ContactUsEmail">Email</string>
+    <string name="btnTextPhone">Text Phone</string>
 </resources>

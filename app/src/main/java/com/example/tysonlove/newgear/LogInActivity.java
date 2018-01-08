@@ -23,6 +23,7 @@ public class LogInActivity extends AppCompatActivity {
     SQLiteOpenHelper openHelper;
     SQLiteDatabase db;
     Cursor cursor;
+    DBSqlLight dbProducts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +109,9 @@ public class LogInActivity extends AppCompatActivity {
             }
 
         });
+
+        dbProducts = new DBSqlLight(LogInActivity.this);
+        dbProducts.AddProducts(new ProductsActivity("rodeOne", "reelOne", "lureOne"));
 
 
     }

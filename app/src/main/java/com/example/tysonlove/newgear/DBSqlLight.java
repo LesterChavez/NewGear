@@ -1,9 +1,13 @@
 package com.example.tysonlove.newgear;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 /**
  * Created by TysonLove on 10/26/2017.
@@ -12,7 +16,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBSqlLight extends SQLiteOpenHelper {
     // SQLiteDatabase db;
-    public static final String DATABASE_REGISTER2 = "register2.db";
+    public static final String DATABASE_REGISTER3 = "register3.db";
+   // public static final String DATABASE_REGISTER2 = "register2.db";
     //public static final String DATABASE_PRODUCTS = "products.db";
     //  public static final String DATABASE_PRICE = "price.db";
 
@@ -42,7 +47,7 @@ public class DBSqlLight extends SQLiteOpenHelper {
     // add the above agin
 
     public DBSqlLight(Context context) {
-        super(context, DATABASE_REGISTER2, null, DATABASE_VERSION);
+        super(context, DATABASE_REGISTER3, null, DATABASE_VERSION);
     }
     // super(context, DATABASE_NAME1, null, DATABASE_VERSION);}
     //this.context = context}
@@ -64,5 +69,26 @@ public class DBSqlLight extends SQLiteOpenHelper {
 
     }
 
+    public void AddProducts(ProductsActivity pa){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put(COL_2_products, pa.getRodeONe());
+        contentValues.put(COL_3_products, pa.getReelOne());
+        contentValues.put(COL_4_products, pa.getLureOne());
 
+        db.insert(TABLE_PRODUCTS, null,contentValues);
+        db.close();
+
+    }
+
+    public ArrayList<ProductsActivity> getData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<ProductsActivity> use= new ArrayList<ProductsActivity>();
+        Cursor result = db.rawQuery("select * from "+TABLE_PRODUCTS , null);
+        while(result.moveToNext()){
+            use.add( new ProductsActivity(result.getString(result.getColumnIndex(COL_2_products)), result.getString(result.getColumnIndex(COL_3_products)),result.getString(result.getColumnIndex(COL_4_products))));
+
+        }
+        return use;
+    }
 }
